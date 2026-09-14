@@ -173,28 +173,6 @@ Ela não contém:
 - dados pessoais reais;
 - identificadores institucionais reais.
 
-O `.gitignore` também impede o versionamento acidental de arquivos como `.env`, chaves, service accounts e configurações locais do Firebase.
-
-## 🌐 GitHub Pages
-
-O site é estático e pode ser publicado diretamente pelo GitHub Pages usando a raiz da branch que contém `index.html`.
-
-O arquivo `.nojekyll` já está incluído e os caminhos utilizados são relativos, permitindo publicação no endereço do próprio repositório.
-
-## 🚧 Status
-
-**Versão demonstrativa em evolução.**
-
-## 🔮 Próximas melhorias
-
-- ampliar cobertura de testes;
-- melhorar responsividade em telas menores;
-- reduzir código legado e duplicações;
-- refatorar módulos gradualmente;
-- aprimorar tratamento de erros;
-- adicionar capturas de tela da versão pública;
-- documentar fluxos e regras de negócio com mais detalhes.
-
 ---
 
 ### 👨‍💻 Autor
@@ -202,3 +180,13 @@ O arquivo `.nojekyll` já está incluído e os caminhos utilizados são relativo
 **Emanuel Henrique**  
 Estudante de Análise e Desenvolvimento de Sistemas — FPB  
 Buscando oportunidade de estágio em Desenvolvimento de Software.
+
+## 🌐 Demonstração online
+
+A versão demonstrativa do sistema está disponível para teste diretamente
+pelo navegador:
+
+👉 **[Acessar demonstração do sistema](https://emanuelhmf-eng.github.io/gestao-viaturas-demo/)**
+
+> A demonstração utiliza exclusivamente dados fictícios e não possui
+> conexão com sistemas ou bancos de dados institucionais.
