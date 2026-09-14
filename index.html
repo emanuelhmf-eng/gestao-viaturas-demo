@@ -1,0 +1,2332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        FROTA DEMO • Sistema Operacional
+    </title>
+
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+    <link rel="stylesheet" href="modules/escala.css">
+
+    <!-- FONTAWESOME -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- GOOGLE FONTS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+<link rel="stylesheet" href="demo/demo.css">
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+
+<body>
+<aside class="demo-banner"><span><strong>DEMONSTRAÇÃO</strong> · Dados fictícios · Alterações apenas neste navegador</span><button id="resetDemo" type="button">Restaurar dados</button></aside>
+
+    
+
+        <!-- ===================================== -->
+        <!-- LOGIN -->
+        <!-- ===================================== -->
+
+        <section
+            id="loginScreen"
+            class="login-screen">
+
+            <div class="login-card">
+
+                <img
+                    src="./assets/demo-logo.svg"
+                    class="logo-demo"
+                    alt="FROTA DEMO">
+
+                <h1>FROTA DEMO</h1>
+
+                <p>
+                    Sistema Operacional
+                    de Viaturas 
+                </p>
+
+                <p class="demo-intro">Explore o sistema com dados totalmente fictícios. Não é necessário informar e-mail ou senha.</p>
+<button
+                    class="btn-primary"
+                    onclick="login()">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    Explorar demonstração
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================================== -->
+        <!-- APP -->
+        <!-- ===================================== -->
+
+        <main
+            id="app"
+            style="display:none;">
+
+            <!-- MENU MOBILE -->
+
+            <button
+                class="menu-mobile"
+                onclick="toggleMenu()">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <!-- ===================================== -->
+            <!-- SIDEBAR -->
+            <!-- ===================================== -->
+
+            <aside
+                class="sidebar"
+                id="sidebar">
+
+                <div class="sidebar-top">
+
+                    <img
+                        src="./assets/demo-logo.svg"
+                        class="brasao-menu"
+                        alt="brasao">
+
+                    <h2>FROTA DEMO</h2>
+
+                    
+                    <div
+                        id="usuarioLogado"
+                        class="usuario-logado">
+
+                        Operacional
+
+                    </div>
+
+                </div>
+
+
+                <!-- MENU -->
+
+                <nav class="menu">
+
+                    <button
+                        class="menu-btn menu-active"
+                        onclick="mostrarTela('dashboard', this)">
+
+                        <i class="fa-solid fa-chart-line"></i>
+                        Dashboard
+
+                    </button>
+
+                    <button
+                        class="menu-btn"
+                        onclick="mostrarTela('teatro', this)">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+                        Teatro de Operações
+
+                    </button>
+
+                    <button
+                        class="menu-btn"
+                        onclick="mostrarTela('viaturas', this)">
+
+                        <i class="fa-solid fa-truck"></i>
+                        Viaturas
+
+                    </button>
+
+                    <button
+                        class="menu-btn"
+                        onclick="mostrarTela('fichaAvaria', this)">
+
+                        <i class="fa-solid fa-file-circle-exclamation"></i>
+                        Ficha de Avaria
+
+                    </button>
+
+                    <button
+                        class="menu-btn"
+                        onclick="mostrarTela('manutencao', this)">
+
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        Manutenção
+
+                    </button>
+                        
+                    <button
+                        class="menu-btn"
+                        onclick="mostrarTela('historico', this)">
+
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        Histórico
+
+                    </button>
+
+                    <button
+                        id="menuCadastro"
+                        class="menu-btn"
+                        onclick="mostrarTela('cadastro', this)">
+
+                        <i class="fa-solid fa-address-card"></i>
+                        Cadastro
+
+                    </button>
+
+                    <button
+                        class="btn-sair"
+                        onclick="logout()">
+
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Sair
+
+                    </button>
+
+                </nav>
+
+            </aside>
+
+
+            <!-- ===================================== -->
+            <!-- CONTEÚDO -->
+            <!-- ===================================== -->
+
+            <section class="content">
+
+                <!-- TOPO -->
+
+                <header class="topbar">
+
+                    <div>
+
+                        <h1>
+                            Sistema Operacional
+                            FROTA DEMO
+                        </h1>
+
+                        <p>
+                            Gestão operacional
+                            das viaturas
+                        </p>
+
+                    </div>
+
+                    <div
+                        id="dataAtual"
+                        class="data-dia">
+
+                    </div>
+
+                </header>
+
+
+                <!-- ===================================== -->
+                <!-- DASHBOARD -->
+                <!-- ===================================== -->
+
+                <section
+                    id="dashboard"
+                    class="tela active">
+                    <div class="page-header">
+
+                            <div>
+
+                                <h2>
+                                    Dashboard Operacional
+                                </h2>
+
+                                <p>
+                                    Situação operacional
+                                    da frota demonstrativa
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <!-- ===================================== -->
+                        <!-- CARDS PRINCIPAIS -->
+                        <!-- ===================================== -->
+
+                        <div class="dashboard-grid">
+
+                            <!-- LIVRES -->
+
+                            <div
+                                class="status-card livre"
+                                onclick="mostrarViaturasLivres()">
+
+                                <div>
+
+                                    <h3>
+                                        Viaturas Livres
+                                    </h3>
+
+                                    <span
+                                        id="totalLivres">
+
+                                        0
+
+                                    </span>
+
+                                </div>
+
+                                <i class="
+                                    fa-solid
+                                    fa-circle-check
+                                ">
+                                </i>
+
+                            </div>
+
+                            <!-- EM USO -->
+
+                            <div
+                                class="status-card uso"
+                                onclick="mostrarViaturasEmUso()">
+
+                                <div>
+
+                                    <h3>
+                                        Em Uso
+                                    </h3>
+
+                                    <span
+                                        id="totalUso">
+
+                                        0
+
+                                    </span>
+
+                                </div>
+
+                                <i class="
+                                    fa-solid
+                                    fa-car-side
+                                ">
+                                </i>
+
+                            </div>
+
+                            <!-- MANUTENÇÃO -->
+
+                            <div
+                                class="status-card manutencao"
+                                onclick="mostrarViaturasManutencao()">
+
+                                <div>
+
+                                    <h3>
+                                        Manutenção
+                                    </h3>
+
+                                    <span
+                                        id="totalManutencao">
+
+                                        0
+
+                                    </span>
+
+                                </div>
+
+                                <i class="
+                                    fa-solid
+                                    fa-screwdriver-wrench
+                                ">
+                                </i>
+
+                            </div>
+
+                            <!-- VIATURAS BAIXADAS -->
+
+                            <div
+                                class="status-card baixadas"
+                                onclick="mostrarViaturasBaixadas()">
+
+                                <div>
+
+                                    <h3>
+                                        Viaturas Baixadas
+                                    </h3>
+
+                                    <span id="totalBaixadas">
+
+                                        0
+
+                                    </span>
+
+                                </div>
+
+                                <i class="fa-solid fa-ban"></i>
+
+                            </div>
+
+                            <!-- MOTORISTAS -->
+
+                            <div class="status-card motorista">
+
+                                <div>
+
+                                    <h3>
+                                        Total Efetivo
+                                    </h3>
+
+                                    <span
+                                        id="totalMotoristas">
+
+                                        0
+
+                                    </span>
+
+                                </div>
+
+                                <i class="
+                                    fa-solid
+                                    fa-user-shield
+                                ">
+                                </i>
+
+                            </div>
+
+                            <!-- OPERAÇÕES -->
+
+                            <div class="status-card operacao">
+
+                                <div>
+
+                                    <h3>
+                                        Operações Ativas
+                                    </h3>
+
+                                    <span
+                                        id="totalOperacoes">
+
+                                        0
+
+                                    </span>
+
+                                </div>
+
+                                <i class="
+                                    fa-solid
+                                    fa-shield-halved
+                                ">
+                                </i>
+
+                            </div>
+
+                            <!-- CHECKLISTS -->
+
+                            <div
+                                class="status-card checklist"
+                                onclick="mostrarChecklistHoje()">
+
+                                <div>
+
+                                    <h3>
+                                        Checklists Hoje
+                                    </h3>
+
+                                    <span
+                                        id="totalChecklistHoje">
+
+                                        0
+
+                                    </span>
+
+                                </div>
+
+                                <i class="
+                                    fa-solid
+                                    fa-clipboard-check
+                                ">
+                                </i>
+
+                            </div>
+
+                            
+
+                        </div>
+
+                        <!-- ===================================== -->
+                        <!-- QUADRO DE OBSERVAÇÕES -->
+                        <!-- ===================================== -->
+
+                        <div class="observacoes-dashboard">
+
+                            <div class="observacoes-header">
+
+                                <h3>
+
+                                    <i class="fa-solid fa-clipboard-list"></i>
+
+                                    Quadro de Informações Operacionais
+
+                                </h3>
+
+                            </div>
+
+                            <div
+                                id="listaObservacoes"
+                                class="lista-observacoes">
+
+                                <p class="sem-observacoes">
+
+                                    Nenhuma informação cadastrada.
+
+                                </p>
+
+                            </div>
+
+                            <textarea
+                                id="novaObservacao"
+                                class="campo-observacao"
+                                rows="4"
+                                placeholder="Digite uma informação operacional importante do dia...">
+                            </textarea>
+
+                            <div class="acoes-observacao">
+
+                                <button
+                                    class="btn-primary"
+                                    onclick="adicionarObservacao()">
+
+                                    <i class="fa-solid fa-plus"></i>
+
+                                    Adicionar
+
+                                </button>
+
+                                <button
+                                    class="btn-delete"
+                                    onclick="limparObservacoes()">
+
+                                    <i class="fa-solid fa-trash"></i>
+
+                                    Limpar Quadro
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ===================================== -->
+                        <!-- DASHBOARD ANALYTICS -->
+                        <!-- ===================================== -->
+
+                        <div class="analytics-grid">
+
+                            <!-- ÚLTIMA ATIVIDADE -->
+
+                            <div class="analytics-card">
+
+                                <div class="card-title">
+
+                                    <i class="
+                                        fa-solid
+                                        fa-clock-rotate-left
+                                    ">
+                                    </i>
+
+                                    Última Atividade
+
+                                </div>
+
+                                <div
+                                    id="ultimaAtividade"
+                                    class="analytics-content">
+
+                                    Nenhuma atividade.
+
+                                </div>
+
+                            </div>
+
+                            <!-- VIATURAS EM USO -->
+
+                            <div class="analytics-card">
+
+                                <div class="card-title">
+
+                                    <i class="
+                                        fa-solid
+                                        fa-truck-fast
+                                    ">
+                                    </i>
+
+                                    Viaturas em Operação
+
+                                </div>
+
+                                <div
+                                    id="viaturasOperacao"
+                                    class="analytics-list">
+
+                                    <p>
+                                        Nenhuma viatura em uso.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ===================================== -->
+                        <!-- DASHBOARD VIATURAS -->
+                        <!-- ===================================== -->
+
+                        <div>
+
+                            <h3 class="section-title">
+
+                                Situação Geral
+                                das Viaturas
+
+                            </h3>
+
+                        </div>
+
+                        <div
+                            id="dashboardCards"
+                            class="viaturas-grid">
+
+                        </div>
+                    
+
+                </section>
+
+                            <!-- ===================================== -->
+                <!-- TEATRO DE OPERAÇÕES -->
+                <!-- ===================================== -->
+
+                <section
+                    id="teatro"
+                    class="tela">
+
+                    <div class="page-header">
+
+                        <div>
+
+                            <h2>
+                                Teatro de Operações
+                            </h2>
+
+                            <p>
+                                Escala operacional
+                                das viaturas
+                            </p>
+
+                        </div>
+
+                        <button
+                            class="btn-primary"
+                            onclick="abrirModalTeatro()">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Nova Operação
+
+                        </button>
+
+                    </div>
+
+                    <div
+                        id="listaTeatro"
+                        class="viaturas-grid">
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===================================== -->
+                <!-- VIATURAS -->
+                <!-- ===================================== -->
+
+                <section
+                    id="viaturas"
+                    class="tela">
+
+                    <div class="page-header">
+
+                        <div>
+
+                            <h2>
+                                Viaturas
+                            </h2>
+
+                            <p>
+                                Checklist operacional
+                                das viaturas
+                            </p>
+
+                        </div>
+
+                        <button
+                            class="btn-primary"
+                            onclick="abrirModalViatura()">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Nova Viatura
+
+                        </button>
+
+                    </div>
+
+                    <div
+                        id="listaViaturas"
+                        class="viaturas-grid">
+
+                    </div>
+
+                </section>
+
+                <section
+                    id="fichaAvaria"
+                    class="tela">
+
+                    <div class="page-header">
+
+                        <div>
+
+                            <h2>
+                                Ficha de Avaria
+                            </h2>
+
+                            <p>
+                                Registro de danos em viaturas
+                            </p>
+
+                        </div>
+
+                        <button
+                            class="btn-primary"
+                            onclick="gerarPdfAvaria()">
+
+                            <i class="fa-solid fa-file-pdf"></i>
+                            Gerar PDF
+
+                        </button>
+
+                        <button
+                            class="btn-modelo-avaria"
+                            onclick="baixarModeloAvaria()">
+
+                            <i class="fas fa-file-download"></i>
+                            Baixar Modelo
+
+                        </button>
+
+                    </div>
+
+                    <div class="config-section">
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label>Viatura</label>
+                                
+
+                                <select id="avariaViatura"></select>
+
+                                <div class="form-group">
+
+                                    <label>Placa</label>
+
+                                    <input
+                                        type="text"
+                                        id="avariaPlaca"
+                                        readonly>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label>Modelo</label>
+
+                                    <input
+                                        type="text"
+                                        id="avariaModelo">
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label>KM Atual</label>
+
+                                    <input
+                                        type="number"
+                                        id="avariaKm">
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Condutor</label>
+                                <input type="text" id="avariaCondutor">
+                                <div class="form-group">
+
+                                    <label>Identificador</label>
+
+                                    <input
+                                        type="text"
+                                        id="avariaMatricula">
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Data</label>
+                                <input type="date" id="avariaData">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Hora</label>
+                                <input type="time" id="avariaHora">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Local da Avaria</label>
+                                <input type="text" id="avariaLocal">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Bairro</label>
+                                <input type="text" id="avariaBairro">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Cidade</label>
+                                <input type="text" id="avariaCidade">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Estado</label>
+                                <input type="text" id="avariaEstado">
+                            </div>
+
+                        </div>
+
+                        <h3 class="section-title">
+                            Tipo da Avaria
+                        </h3>
+
+                        <div class="avaria-grid">
+
+                            <label><input type="checkbox" value="Para-brisa"> Para-brisa</label>
+                            <label><input type="checkbox" value="Pneu"> Pneu</label>
+                            <label><input type="checkbox" value="Roda"> Roda</label>
+                            <label><input type="checkbox" value="Peito de Aço"> Peito de Aço</label>
+                            <label><input type="checkbox" value="Desgaste Prematuro"> Desgaste Prematuro</label>
+                            <label><input type="checkbox" value="Maçaneta"> Maçaneta</label>
+                            <label><input type="checkbox" value="Para-choque"> Para-choque</label>
+                            <label><input type="checkbox" value="Giroflex"> Giroflex</label>
+                            <label><input type="checkbox" value="Antena"> Antena</label>
+                            <label><input type="checkbox" value="Atropelamento"> Atropelamento</label>
+                            <label><input type="checkbox" value="Outros"> Outros</label>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>
+                                Descrição do Fato
+                            </label>
+
+                            <textarea
+                                id="avariaDescricao"
+                                rows="8">
+                            </textarea>
+
+                        </div>
+
+                        <div class="croqui-container">
+
+                                <h3 class="section-title">
+
+                                    Marcar com círculo a área afetada
+
+                                </h3>
+
+                                <div class="croqui-duplo">
+
+                                    <div class="croqui-wrapper">
+
+                                        <img
+                                            src="assets/croqui-s10-frente.png"
+                                            id="croquiFrente">
+
+                                        <div
+                                            id="marcacoesFrente">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="croqui-wrapper">
+
+                                        <img
+                                            src="assets/croqui-s10-traseira-sem-fundo.png"
+                                            id="croquiTraseira">
+
+                                        <div
+                                            id="marcacoesTraseira">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                                <h3 class="section-title">
+
+                                    Área Atingida
+
+                                </h3>
+
+                                
+
+                        </div>
+
+                        <div class="config-section">
+
+                        <h3>Declarante</h3>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label>Nome do Declarante</label>
+
+                                <input
+                                    type="text"
+                                    id="declaranteNome">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Local e Data</label>
+
+                                <input
+                                    type="text"
+                                    id="declaranteLocalData">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    </div>
+
+                    
+
+                <div class="config-section">
+
+                <h3>Dados do Sinistro</h3>
+
+                <div class="config-section">
+                    
+
+                    <h3>Sinalização</h3>
+
+                    <div class="avaria-grid">
+
+                        <label>
+                            <input
+                                type="checkbox"
+                                value="Semáforo">
+
+                            Semáforo
+                        </label>
+
+                        <label>
+                            <input
+                                type="checkbox"
+                                value="Placa de Advertência">
+
+                            Placa de Advertência
+                        </label>
+
+                        <label>
+                            <input
+                                type="checkbox"
+                                value="Placa de Indicação">
+
+                            Placa de Indicação
+                        </label>
+
+                        <label>
+                            <input
+                                type="checkbox"
+                                value="Via sem Sinalização">
+
+                            Via sem Sinalização
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Tipo de Acidente</label>
+                        <select id="tipoAcidente">
+
+                            <option value="">Selecione</option>
+
+                            <option>Colisão</option>
+                            <option>Abalroamento</option>
+                            <option>Tombamento</option>
+                            <option>Capotamento</option>
+                            <option>Engavetamento</option>
+                            <option>Perda de Controle</option>
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Condição da Pista</label>
+                        <select id="condicaoPista">
+
+                            <option value="">Selecione</option>
+
+                            <option>Molhada</option>
+                            <option>Inundada</option>
+                            <option>Esburacada</option>
+                            <option>Obstruída</option>
+                            <option>Enlameada</option>
+                            <option>Em Obras</option>
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tipo da Pista</label>
+                        <select id="tipoPista">
+
+                            <option value="">Selecione</option>
+
+                            <option>Asfalto</option>
+                            <option>Terra</option>
+                            <option>Cascalho</option>
+                            <option>Paralelepípedo</option>
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="config-section">
+
+                    <h3>Observações</h3>
+
+                    <textarea
+                        id="observacoesAvaria"
+                        class="campo-flat"
+                        rows="6">
+                    </textarea>
+
+                </div>
+
+            </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Fotos da Avaria
+                        </label>
+
+                        <input
+                            type="file"
+                            id="avariaFotos"
+                            multiple
+                            accept="image/*">
+
+                    </div>
+
+                   <div class="config-section">
+
+                        <h3>
+                            Danos Materiais e Corporais à Terceiros
+                        </h3>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label>Nome</label>
+
+                                <input
+                                    id="terceiroNome">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Telefone</label>
+
+                                <input
+                                    id="terceiroTelefone">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Endereço</label>
+
+                                <input
+                                    id="terceiroEndereco">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Bairro</label>
+
+                                <input
+                                    id="terceiroBairro">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Cidade</label>
+
+                                <input
+                                    id="terceiroCidade">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Estado</label>
+
+                                <input
+                                    id="terceiroEstado">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>CEP</label>
+
+                                <input
+                                    id="terceiroCep">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>E-mail</label>
+
+                                <input
+                                    id="terceiroEmail">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Placa</label>
+
+                                <input
+                                    id="terceiroPlaca">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Modelo</label>
+
+                                <input
+                                    id="terceiroModelo">
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>
+                                Bens Danificados
+                            </label>
+
+                            <textarea
+                                id="terceiroBens">
+                            </textarea>
+
+                        </div>
+
+                    </div>
+
+                    <div class="card-actions">
+
+                        <button
+                            class="btn-primary"
+                            onclick="salvarFichaAvaria()">
+
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            Salvar Ficha
+
+                        </button>
+
+                        <button
+                            class="btn-details"
+                            onclick="gerarPdfAvaria()">
+
+                            <i class="fa-solid fa-file-pdf"></i>
+                            Gerar PDF
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===================================== -->
+                <!-- MANUTENÇÃO -->
+                <!-- ===================================== -->
+
+                <section
+                    id="manutencao"
+                    class="tela">
+
+                    <div class="page-header">
+
+                        <div>
+
+                            <h2>
+                                Manutenção
+                            </h2>
+
+                            <p>
+                                Controle das viaturas
+                                em manutenção
+                            </p>
+
+                        </div>
+
+                        <button
+                            class="btn-primary"
+                            onclick="abrirModalManutencao()">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Registrar
+
+                        </button>
+
+                    </div>
+
+                    <div
+                        id="listaManutencao"
+                        class="viaturas-grid">
+
+                    </div>
+
+                </section>
+
+                            <!-- ===================================== -->
+                <!-- HISTÓRICO -->
+                <!-- ===================================== -->
+
+                <section
+                    id="historico"
+                    class="tela">
+
+                    <div class="page-header">
+
+                        <div>
+
+                            <h2>
+                                Histórico Operacional
+                            </h2>
+
+                            <p>
+                                Registro das ações
+                                realizadas no sistema
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="historico-toolbar">
+
+                        <div class="campo-busca">
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                            <input
+                                type="text"
+                                id="filtroViatura"
+                                placeholder="Buscar viatura..."
+                                class="filtro-busca"
+                                oninput="filtrarHistorico()"
+                            />
+
+                        </div>
+
+                        <div class="filtros-historico">
+
+                            <input
+                                type="date"
+                                id="filtroDataInicio">
+
+                            <input
+                                type="date"
+                                id="filtroDataFim">
+
+                            <select id="filtroTipo">
+
+                                <option value="">
+                                    Todos
+                                </option>
+
+                                <option value="checklist">
+                                    Checklist
+                                </option>
+
+                                <option value="teatro">
+                                    Teatro
+                                </option>
+
+                                <option value="manutencao">
+                                    Manutenção
+                                </option>
+
+                                <option value="avaria">
+                                    Avarias
+                                </option>
+
+                            </select>
+
+                            <button
+                                class="btn-primary"
+                                onclick="filtrarHistorico()">
+
+                                <i class="fa-solid fa-filter"></i>
+                                Filtrar
+
+                            </button>
+
+                            <button
+                                class="btn-delete"
+                                onclick="removerHistoricoFiltrado()">
+
+                                <i class="fa-solid fa-trash"></i>
+                                Remover Filtrados
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    
+
+
+                    <!-- GRID HISTÓRICO -->
+
+                    <div
+                        id="listaHistorico"
+                        class="historico-table-shell">
+
+                    </div>
+
+                </section>
+
+                
+
+
+                <!-- ===================================== -->
+                <!-- CONFIGURAÇÕES -->
+                <!-- ===================================== -->
+
+                <section
+                    
+                    id="cadastro"
+                    class="tela">
+
+                    <div class="page-header">
+
+                        <div>
+
+                            <h2>
+                                Configurações
+                            </h2>
+
+                            <p>
+                                Cadastro e gerenciamento
+                                do sistema
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ===================================== -->
+                    <!-- MOTORISTAS -->
+                    <!-- ===================================== -->
+
+                    <div class="config-section">
+
+                        <div class="section-header">
+                            <h3>
+                            Integrantes
+                            </h3>
+
+                            <button
+                                class="btn-primary"
+                                onclick="abrirModalMotorista()">
+
+                                <i class="fa-solid fa-plus"></i>
+                                Novo Integrante
+
+                            </button>
+                            
+
+                        </div>
+                        <input
+                        type="text"
+                        id="buscarMatricula"
+                        placeholder="Buscar por identificador..."
+                        oninput="filtrarMotoristas()"
+                        />
+                        
+                        <div
+                            id="listaMotoristas"
+                            class="config-grid">
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ===================================== -->
+                    <!-- VIATURAS -->
+                    <!-- ===================================== -->
+
+                    <div class="config-section">
+
+                        <div class="section-header">
+
+                            <h3>
+                                Viaturas
+                            </h3>
+
+                            <button
+                                class="btn-primary"
+                                onclick="abrirModalViatura()">
+
+                                <i class="fa-solid fa-plus"></i>
+                                Nova Viatura
+
+                            </button>
+
+                        </div>
+
+                        <div
+                            id="listaConfigViaturas"
+                            class="config-grid">
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+        </main>
+
+            <!-- ===================================== -->
+        <!-- MODAL TEATRO DE OPERAÇÕES -->
+        <!-- ===================================== -->
+
+        <div
+            id="modalTeatro"
+            class="modal hidden">
+
+            <div class="modal-content modal-lg">
+
+                <div class="modal-header">
+
+                    <h2>
+                        Nova Operação
+                    </h2>
+
+                    <button
+                        onclick="fecharModal('modalTeatro')">
+
+                        ✕
+
+                    </button>
+
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>Viatura</label>
+
+                        <select id="teatroViatura">
+
+                            <option value="">
+                                Selecione
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    </div>
+
+                    <div class="guarnicao-grid">
+
+                        <div class="campo-pesquisa-select">
+
+                            <label>
+
+                                <i class="fa-solid fa-car"></i>
+
+                                Motorista
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="buscarMotorista"
+                                class="input-pesquisa"
+                                placeholder="Pesquisar motorista..."
+
+                                oninput="filtrarSelectMotoristas(
+                                    'buscarMotorista',
+                                    'teatroMotorista'
+                                )">
+
+                            <select
+                                id="teatroMotorista"
+                                class="select-efetivo"
+                                size="8">
+
+                            </select>
+
+                        </div>
+
+                            
+
+                        
+
+                        
+
+                        
+
+                            <div class="campo-pesquisa-select">
+
+                                <label>
+
+                                <i class="fa-solid fa-star"></i>
+
+                                Comandante
+
+                                </label>
+
+                                    <input
+                                    type="text"
+                                    id="buscarComandante"
+                                    class="input-pesquisa"
+                                    placeholder="Pesquisar Comandante..."
+
+                                    oninput="filtrarSelectMotoristas(
+                                    'buscarComandante',
+                                    'teatroComandante'
+                                    )">
+
+                                <select
+                                    id="teatroComandante"
+                                    class="select-efetivo"
+                                    size="8">
+
+                                </select>
+
+                            </div>
+
+
+
+
+                            <div class="campo-pesquisa-select">
+
+                                <label>
+
+                                <i class="fa-solid fa-star"></i>
+
+                                P1
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="buscarP1"
+                                    class="input-pesquisa"
+                                    placeholder="Pesquisar P1..."
+
+                                    oninput="filtrarSelectMotoristas(
+                                    'buscarP1',
+                                    'teatroP1'
+                                    )">
+
+                                <select
+                                    id="teatroP1"
+                                    class="select-efetivo"
+                                    size="8">
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="campo-pesquisa-select">
+
+                                <label>
+
+                                <i class="fa-solid fa-star"></i>
+
+                                P2
+
+                                </label>
+
+                                <input
+                                type="text"
+                                id="buscarP2"
+                                class="input-pesquisa"
+                                placeholder="Pesquisar P2..."
+
+                                oninput="filtrarSelectMotoristas(
+                                'buscarP2',
+                                'teatroP2'
+                                )">
+
+                            <select
+                                id="teatroP2"
+                                class="select-efetivo"
+                                size="8">
+
+                            </select>
+
+                            </div>
+
+                        <div class="form-grid dados-operacao">
+                            <div class="form-group">
+
+                                <label>Tipo de Serviço</label>
+
+                                <select id="teatroServico">
+
+                                    <option value="Ordinário">
+                                        Ordinário
+                                    </option>
+
+                                    <option value="Extraordinário">
+                                        Extraordinário
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Área de Atuação</label>
+
+                                <input
+                                    type="text"
+                                    id="teatroArea">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Contato</label>
+
+                                <input
+                                    type="text"
+                                    id="teatroContato">
+
+                            </div>
+
+                            <button
+                                class="btn-primary btn-salvar-operacao"
+                                onclick="salvarTeatro()">
+
+                                <i class="fa-solid fa-floppy-disk"></i>
+
+                                Salvar Operação
+
+                            </button>
+
+                        </div>
+
+
+                </div>
+
+            
+
+               
+            </div>
+
+        </div>
+
+        <!-- ===================================== -->
+        <!-- MODAL ENTRADA EM OPERAÇÃO -->
+        <!-- ===================================== -->
+
+        <div
+            id="modalEntradaOperacao"
+            class="modal hidden">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h2>
+
+                        Entrada em Operação
+
+                    </h2>
+
+                    <button
+                        onclick="fecharModal('modalEntradaOperacao')">
+
+                        ✕
+
+                    </button>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>Motorista</label>
+
+                    <input
+                        type="text"
+                        id="buscarMotoristaOperacao"
+                        placeholder="Pesquisar motorista..."
+                        oninput="filtrarSelectMotoristas(
+                        'buscarMotoristaOperacao',
+                        'motoristaOperacao'
+                        )">
+
+                </div>
+
+                <div class="form-group">
+
+                    <select
+                        id="motoristaOperacao"
+                        size="10">
+
+                    </select>
+
+                </div>
+
+                <button
+                    class="btn-primary"
+                    onclick="confirmarEntradaOperacao()">
+
+                    Iniciar Operação
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ===================================== -->
+        <!-- MODAL CHECKLIST -->
+        <!-- ===================================== -->
+
+        <div
+            id="modalChecklist"
+            class="modal hidden">
+
+            <div class="modal-content modal-lg">
+
+                <div class="modal-header">
+
+                    <h2>
+                        Checklist da Viatura
+                    </h2>
+
+                    <button
+                        onclick="fecharModal('modalChecklist')">
+
+                        ✕
+
+                    </button>
+
+                </div>
+
+
+                <div id="ultimoChecklistInfo">
+
+                </div>
+
+
+                <input
+                    type="hidden"
+                    id="viaturaChecklistId">
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>Motorista</label>
+
+                        <input
+                        type="text"
+                        id="buscarCheckMotorista"
+                        placeholder="Pesquisar motorista..."
+                        oninput="filtrarSelectMotoristas(
+                        'buscarCheckMotorista',
+                        'checkMotorista'
+                        )">
+
+                        <select id="checkMotorista">
+
+                            <option value="">
+                                Selecione
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Serviço</label>
+
+                        <select id="checkServico">
+
+                            <option value="Ordinário">
+                                Ordinário
+                            </option>
+
+                            <option value="Extraordinário">
+                                Extraordinário
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>KM Inicial</label>
+
+                        <input
+                            type="number"
+                            id="checkKmInicial">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            KM para troca de óleo
+                        </label>
+
+                        <input
+                            type="number"
+                            id="checkKmTrocaOleo">
+
+                    </div>
+
+                </div>
+
+
+                <!-- ITENS -->
+
+                <div class="checklist-grid">
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            id="chaveRoda">
+
+                        Chave de roda
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            id="hastePneu">
+
+                        Haste pneu reserva
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            id="macaco">
+
+                        Macaco
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            id="triangulo">
+
+                        Triângulo
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            id="pneuReserva">
+
+                        Pneu reserva
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            id="limpeza">
+
+                        Limpeza
+                    </label>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Avarias</label>
+
+                    <textarea id="checkAvarias"></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Fotos da Viatura
+                        (máx. 15)
+                    </label>
+
+                    <input
+                        type="file"
+                        id="checkFotos"
+                        multiple
+                        accept="image/*">
+
+                </div>
+
+
+                <button
+                    class="btn-primary"
+                    onclick="salvarChecklist()">
+
+                    Salvar Checklist
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ===================================== -->
+        <!-- MODAL MOTORISTA -->
+        <!-- ===================================== -->
+
+        <div
+            id="modalMotorista"
+            class="modal hidden">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h2>
+                        Novo Integrante
+                    </h2>
+
+                    <button
+                        onclick="fecharModal('modalMotorista')">
+
+                        ✕
+
+                    </button>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Nome</label>
+
+                    <input
+                        type="text"
+                        id="motoristaNome">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Função</label>
+
+                    <input
+                        type="text"
+                        id="motoristaGraduacao">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Identificador</label>
+
+                    <input
+                        type="text"
+                        id="motoristaMatricula">
+
+                </div>
+
+                <select id="motoristaPelotao">
+
+                    <option value="">
+                        Selecione a equipe
+                    </option>
+
+                    <option value="Equipe 1">
+                        Equipe 1
+                    </option>
+
+                    <option value="Equipe 2">
+                        Equipe 2
+                    </option>
+
+                    <option value="Equipe 3">
+                        Equipe 3
+                    </option>
+
+                    <option value="Equipe 4">
+                        Equipe 4
+                    </option>
+
+                </select>
+
+                <select id="motoristaTipo">
+
+                    <option value="">
+                        Tipo de Serviço
+                    </option>
+
+                    <option value="OPERACIONAL">
+                        Operacional
+                    </option>
+
+                    <option value="ADMINISTRATIVO">
+                        Administrativo
+                    </option>
+
+                </select>
+
+                <button
+                    class="btn-primary"
+                    onclick="salvarMotorista()">
+
+                    Salvar
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ===================================== -->
+        <!-- MODAL VIATURA -->
+        <!-- ===================================== -->
+
+        <div
+            id="modalViatura"
+            class="modal hidden">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h2>
+                        Nova Viatura
+                    </h2>
+
+                    <button
+                        onclick="fecharModal('modalViatura')">
+
+                        ✕
+
+                    </button>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Nome da Viatura
+                    </label>
+
+                    <input
+                        type="text"
+                        id="viaturaNome">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Placa</label>
+
+                    <input
+                        type="text"
+                        id="viaturaPlaca">
+
+                </div>
+
+                <button
+                    class="btn-primary"
+                    onclick="salvarViatura()">
+
+                    Salvar
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ===================================== -->
+        <!-- MODAL MANUTENÇÃO -->
+        <!-- ===================================== -->
+
+        <div
+            id="modalManutencao"
+            class="modal hidden">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h2>
+                        Registrar Manutenção
+                    </h2>
+
+                    <button
+                        type="button"
+                        onclick="
+                            fecharModal(
+                                'modalManutencao'
+                            )
+                        "
+                    >
+
+                        ✕
+
+                    </button>
+
+                </div>
+
+                <!-- VIATURA -->
+
+                <div class="form-group">
+
+                    <label>
+                        Viatura
+                    </label>
+
+                    <select id="manutencaoViatura">
+
+                        <option value="">
+                            Selecione a viatura
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- TIPO -->
+
+                <div class="form-group">
+
+                    <label>
+                        Tipo de Manutenção
+                    </label>
+
+                    <input
+                        type="text"
+                        id="manutencaoTipo"
+                        placeholder="Preventiva"
+                    >
+
+                </div>
+
+                <!-- OFICINA -->
+
+                <div class="form-group">
+
+                    <label>
+                        Oficina
+                    </label>
+
+                    <input
+                        type="text"
+                        id="manutencaoOficina"
+                        placeholder="Nome da oficina"
+                    >
+
+                </div>
+
+                <!-- BOTÃO -->
+
+                <button
+                    class="btn-primary"
+                    onclick="salvarManutencao()"
+                >
+
+                    Salvar
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ===================================== -->
+        <!-- MODAL DETALHES -->
+        <!-- ===================================== -->
+
+        <div
+            id="modalDetalhes"
+            class="modal hidden">
+
+            <div class="modal-content modal-lg">
+
+                <div class="modal-header">
+
+                    <h2>
+                        Detalhes
+                    </h2>
+
+                    <button
+                        onclick="fecharModal('modalDetalhes')">
+
+                        ✕
+
+                    </button>
+
+                </div>
+
+                <div id="detalhesConteudo">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div
+            id="modalDashboard"
+            class="modal hidden">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h2 id="tituloDashboardModal">
+
+                        Detalhes
+
+                    </h2>
+
+                    <button
+                        onclick="fecharModal('modalDashboard')">
+
+                        ✕
+
+                    </button>
+
+                </div>
+
+                <div id="conteudoDashboardModal">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ===================================== -->
+        <!-- SCRIPTS -->
+        <!-- ===================================== -->
+
+        <script type="module" src="./firebase.js"></script>
+        <script type="module" src="./modules/auth.js"></script>
+        <script type="module" src="./script.js"></script>
+        <script type="module" src="./modules/escala.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+        <div id="statusSistema" class="status-toast carregando">
+
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+
+            <span>Carregando informações do sistema...</span>
+
+        </div>
+
+    <script type="module" src="./demo/ui.mjs"></script>
+</body>
+
+</html>

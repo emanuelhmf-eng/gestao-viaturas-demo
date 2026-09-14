@@ -1,0 +1,4323 @@
+/* =====================================
+   RESET
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: "Inter", sans-serif;
+    background: #f4f7fb;
+    color: var(--texto-principal);
+}
+
+
+/* =====================================
+   VARIÁVEIS
+===================================== */
+
+:root {
+
+    --primary:
+        #1B1A17;
+
+    --primary-light:
+        #2B261F;
+
+    --secondary:
+        #6B5B3E;
+
+    --success:
+        #556B2F;
+
+    --warning:
+        #B0893B;
+
+    --danger:
+        #B54848;
+
+    --white:
+        #ffffff;
+
+    --gray:
+        #B6A07A;
+
+    --border:
+        #3E3427;
+
+    --shadow:
+        0 10px 30px
+        rgba(0,0,0,0.30);
+
+    --radius:
+        18px;
+
+     /* =====================================
+             CORES TEXTO CAQUI
+        ===================================== */
+
+    --texto-principal:
+        #b18c57;
+
+    --texto-secundario:
+        #a2834d;
+
+    --texto-claro:
+        #9f814d;
+
+    --titulo-operacional:
+        #665231;
+
+    --subtitulo-operacional:
+        #967f58;
+    }
+
+
+/* =====================================
+   BODY
+===================================== */
+
+body {
+    background:
+        linear-gradient(
+            180deg,
+            #f8fafc 0%,
+            #eef2f7 100%
+        );
+}
+
+
+/* =====================================
+   LOGIN
+===================================== */
+
+/* =====================================
+FUNDO LOGIN CAATINGA
+===================================== */
+
+.login-screen {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #1B1A17 0%,
+            #2B261F 25%,
+            #4E4637 50%,
+            #6B5B3E 75%,
+            #66593f 100%
+
+        );
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+/* =====================================
+EFEITO CAMUFLADO
+===================================== */
+
+.login-screen::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(182,160,122,.12),
+            transparent 20%
+        ),
+
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(85,107,47,.15),
+            transparent 22%
+        ),
+
+        radial-gradient(
+            circle at 60% 70%,
+            rgba(107,91,62,.18),
+            transparent 24%
+        ),
+
+        radial-gradient(
+            circle at 30% 80%,
+            rgba(58,54,45,.15),
+            transparent 20%
+        );
+
+    opacity:.9;
+
+}
+
+.login-card {
+
+    width: 100%;
+    max-width: 420px;
+
+    background:
+        rgba(27,26,23,0.92);
+
+    backdrop-filter: blur(8px);
+
+    border:
+        1px solid
+        rgba(182,160,122,0.20);
+
+    border-radius: 30px;
+
+    padding: 40px 30px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,0.45);
+
+    text-align: center;
+}
+
+.logo-demo {
+
+    width: 110px;
+    margin-bottom: 15px;
+}
+
+/* =====================================
+TÍTULO LOGIN
+===================================== */
+
+.login-card h1 {
+
+    font-size: 34px;
+
+    font-weight: 800;
+
+    color: #D8C3A5;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+
+        0 2px 6px
+        rgba(0,0,0,0.45);
+
+}
+
+.login-card p {
+
+    color: #B6A07A;
+
+    margin-top: 8px;
+
+    margin-bottom: 30px;
+}
+
+/* =====================================
+   FORMULÁRIOS
+===================================== */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* =====================================
+LABELS LOGIN
+===================================== */
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #D8C3A5;
+
+    letter-spacing: .5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+    width: 100%;
+
+    padding: 15px 16px;
+
+    border:
+        1px solid
+        #dbe3ef;
+
+    border-radius: 14px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    background: #f8fafc;
+
+    transition: .2s;
+
+    color: var(--texto-principal);
+}
+
+.form-group textarea {
+    resize: none;
+    min-height: 120px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    border-color:
+        var(--secondary);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(29,78,216,.12);
+}
+
+
+/* =====================================
+   BOTÕES
+===================================== */
+
+/* =====================================
+BOTÃO LOGIN CÁQUI
+===================================== */
+
+.btn-primary {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: auto;
+    min-width: 140px;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #8B7D62, #6B5B3E);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .25s;
+    letter-spacing: .3px;
+    box-shadow: 0 8px 18px rgba(107,91,62,.25);
+}
+
+.btn-primary:hover {
+
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #A08B69, #7B694A);
+    box-shadow: 0 10px 20px rgba(107,91,62,.32);
+}
+
+#app {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =====================================
+   SIDEBAR
+===================================== */
+
+.sidebar {
+
+    width: 280px;
+
+    height: 100vh;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            #1B1A17,
+            #2B261F
+
+        );
+
+    color: white;
+
+    padding: 25px 20px;
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    z-index: 999;
+
+    transition: .3s;
+
+}
+
+.sidebar::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+
+    background:#8B7D62;
+
+    border-radius:20px;
+
+}
+
+.sidebar-top {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+    padding-bottom: 20px;
+
+    border-bottom:
+
+        1px solid
+        rgba(182,160,122,0.15);
+}
+
+.brasao-menu {
+
+    width: 90px;
+    margin-bottom: 12px;
+}
+
+/* =====================================
+NOME DEMO MENU
+===================================== */
+
+.sidebar-top h2 {
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    color: #D8C3A5;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+
+        0 2px 6px
+        rgba(0,0,0,0.45);
+
+}
+.usuario-logado {
+
+    margin-top: 12px;
+
+    background:
+
+        rgba(182,160,122,.08);
+
+    padding: 12px;
+
+    border-radius: 14px;
+
+    font-size: 13px;
+
+    color: #D8C3A5;
+
+    border:
+
+        1px solid
+        rgba(182,160,122,.10);
+}
+
+
+/* =====================================
+   MENU
+===================================== */
+
+.menu {
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu button {
+
+    border: none;
+
+    background: transparent;
+
+    color: #D8C3A5;
+
+    text-align: left;
+
+    padding: 16px;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: .25s;
+
+    border-left:
+        4px solid transparent;
+}
+
+.menu button i {
+
+    color: #B6A07A;
+
+    font-size: 17px;
+}
+
+.menu button:hover {
+
+    background:
+
+        rgba(182,160,122,.10);
+
+    color: #FFFFFF;
+
+    border-left:
+
+        4px solid #B6A07A;
+
+    transform:
+        translateX(4px);
+}
+
+.btn-sair {
+
+    margin-top:auto;
+
+    background:
+        rgba(220,38,38,.20)
+        !important;
+
+}
+
+
+/* =====================================
+   CONTENT
+===================================== */
+
+.content {
+
+    margin-left: 280px;
+
+    width: 100%;
+
+    padding: 30px;
+}
+
+
+/* =====================================
+   TOPBAR
+===================================== */
+
+.topbar {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.topbar h1 {
+
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--titulo-operacional);
+}
+
+.topbar p {
+
+    color: var(--subtitulo-operacional);
+}
+
+.data-dia {
+
+    background: white;
+
+    padding: 14px 20px;
+
+    border-radius: 14px;
+
+    box-shadow: var(--shadow);
+
+    font-size: 14px;
+}
+
+
+/* =====================================
+   TELAS
+===================================== */
+
+.tela {
+    display: none;
+}
+
+.tela.active {
+    display: block;
+}
+
+/* =====================================
+   PAGE HEADER
+===================================== */
+
+.page-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 20px;
+    padding: 18px 20px;
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+}
+
+.page-header h2 {
+
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--titulo-operacional);
+}
+
+.page-header p {
+
+    color: var(--subtitulo-operacional);
+    margin-top: 6px;
+    font-size: 0.95rem;
+}
+
+
+/* =====================================
+   DASHBOARD
+===================================== */
+
+.dashboard-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(240px,1fr)
+        );
+
+    gap: 18px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =====================================
+   STATUS CARDS
+===================================== */
+
+.status-card {
+
+    background:
+        linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 22px;
+    padding: 22px 24px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    transition: .25s;
+    position: relative;
+    overflow: hidden;
+    cursor:pointer;
+    border: 1px solid #e7ebf2;
+    min-height: 124px;
+}
+
+.status-card::before {
+
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 5px;
+    background: linear-gradient(180deg, #c8b08a, #8b7d62);
+}
+
+.status-card:hover {
+
+    transform: translateY(-4px);
+    box-shadow: 0 16px 34px rgba(15, 23, 42, 0.12);
+    border-color: #d5dde7;
+}
+
+.status-card h3 {
+
+    font-size: 15px;
+    color: var(--titulo-operacional);
+    font-weight: 700;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+}
+
+.status-card span {
+
+    display: block;
+
+    margin-top: 10px;
+
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--titulo-operacional);
+    line-height: 1;
+}
+
+/* =====================================
+ÍCONES DASHBOARD
+===================================== */
+
+.status-card i {
+
+    font-size: 24px;
+
+    color:
+        #8B7D62;
+
+    background:
+        rgba(200,176,138,.15);
+
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 0 1px rgba(139,125,98,.15);
+    transition: .25s ease;
+
+}
+
+.status-card:hover i {
+
+    transform: scale(1.04);
+    background: rgba(200,176,138,.24);
+}
+
+
+/* STATUS COLORS */
+
+.status-card.livre::before {
+
+    background: #16a34a;
+}
+
+.status-card.uso::before {
+
+    background: #2563eb;
+}
+
+.status-card.manutencao::before {
+
+    background: #ea580c;
+}
+
+.status-card.baixadas::before {
+
+    background: #8b0000;
+}
+
+.status-card.motorista::before {
+
+    background: #7c3aed;
+}
+
+.status-card.operacao::before {
+
+    background: #0f766e;
+}
+
+.status-card.checklist::before {
+
+    background: #d97706;
+}
+
+
+/* =====================================
+   GRIDS
+===================================== */
+
+.viaturas-grid,
+.config-grid,
+.historico-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(300px,1fr)
+        );
+
+    gap: 20px;
+}
+
+
+/* =====================================
+   CARD DE VIATURA
+===================================== */
+
+.viatura-card {
+
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: .25s;
+    border: 1px solid #eef2f7;
+}
+
+.viatura-card:hover {
+
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+}
+
+.viatura-imagem {
+
+    width: 100%;
+    height: 180px;
+
+    object-fit: cover;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #eff6ff
+        );
+
+    padding: 20px;
+}
+
+.viatura-content {
+
+    padding: 22px;
+}
+
+.viatura-content h3 {
+
+    font-size: 22px;
+    font-weight: 800;
+
+    color: var(--titulo-operacional);
+
+    margin-bottom: 12px;
+}
+
+
+/* =====================================
+   INFO
+===================================== */
+
+.viatura-info {
+
+    color: var(--texto-secundario);
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* =====================================
+   STATUS BADGE
+===================================== */
+
+.status-badge {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 18px;
+
+    border-radius: 999px;
+
+    margin-top: 14px;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.status-livre {
+
+    background:
+        rgba(22,163,74,.12);
+
+    color: #15803d;
+}
+
+.status-uso {
+
+    background:
+        rgba(37,99,235,.12);
+
+    color: #1d4ed8;
+}
+
+.status-manutencao {
+
+    background:
+        rgba(234,88,12,.12);
+
+    color: #c2410c;
+}
+
+
+/* =====================================
+   ACTIONS
+===================================== */
+
+.card-actions{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:18px;
+
+}
+
+.card-actions button{
+
+    flex:1;
+
+    min-width:120px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    padding:12px 16px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.25s;
+
+    box-shadow:0 3px 8px rgba(0,0,0,.15);
+
+}
+
+/* =====================================
+BOTÃO DETALHES
+===================================== */
+
+
+.btn-details{
+
+    background:#b28a2e;
+
+    color:white;
+
+}
+/* =====================================
+BOTÃO EDITAR
+===================================== */
+
+.btn-edit {
+
+    background:
+
+        rgba(107,91,62,.14);
+
+    color:
+        #6B5B3E;
+
+    border:
+        1px solid
+        rgba(107,91,62,.20);
+
+}
+
+.btn-delete{
+
+    background:#c62828;
+
+    color:white;
+
+}
+
+/* =====================================
+HOVER BOTÕES
+===================================== */
+
+
+/* =====================================
+HOVER DETALHES
+===================================== */
+
+.btn-details:hover{
+
+    background:#8d6d20;
+
+    transform:translateY(-2px);
+
+}
+
+/* =====================================
+HOVER EDITAR
+===================================== */
+
+.btn-edit:hover{
+
+    background:
+        #6B5B3E;
+
+    color:
+        #F5E6CC;
+
+}
+
+/* =====================================
+HOVER CHECKLIST
+===================================== */
+
+.btn-checklist:hover{
+
+    background:
+        #6B5B3E;
+
+    color:
+        #F5E6CC;
+
+}
+
+/* =====================================
+HOVER REMOVER
+===================================== */
+
+.btn-delete:hover{
+
+    background:#8e0000;
+
+    transform:translateY(-2px);
+
+}
+
+/* =====================================
+   CONFIG SECTION
+===================================== */
+
+.config-section {
+
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+    padding: 28px;
+    margin-bottom: 25px;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.config-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #8b7d62, #c8b08a);
+}
+
+.section-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.section-header h3 {
+
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--titulo-operacional);
+}
+
+
+/* =====================================
+   HISTÓRICO
+===================================== */
+
+.analytics-card {
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid #e5e7eb;
+    border-radius: 22px;
+    padding: 22px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+}
+
+.analytics-card .card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--titulo-operacional);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.analytics-card .card-title i {
+    color: #8b7d62;
+    background: rgba(200, 176, 138, 0.16);
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.analytics-content,
+.analytics-list {
+    color: var(--texto-principal);
+    line-height: 1.6;
+}
+
+.analytics-list .operacao-card,
+.analytics-content .atividade-item {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+}
+
+.historico-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 18px;
+    padding: 16px 18px;
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+}
+
+.historico-table-shell {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid #e5e7eb;
+}
+
+.historico-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.historico-table thead {
+    background: linear-gradient(135deg, #f8fafc, #eef2ff);
+}
+
+.historico-table th,
+.historico-table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: middle;
+}
+
+.historico-table th {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #64748b;
+}
+
+.historico-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.historico-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.historico-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.historico-badge.checklist {
+    background: #ecfdf3;
+    color: #047857;
+}
+
+.historico-badge.teatro {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+.historico-badge.manutencao {
+    background: #fff7ed;
+    color: #c2410c;
+}
+
+.historico-badge.avaria {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.historico-resumo {
+    font-weight: 600;
+    color: var(--titulo-operacional);
+}
+
+.historico-meta {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+}
+
+.historico-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.historico-empty {
+    padding: 24px;
+    text-align: center;
+    color: var(--texto-secundario);
+    font-weight: 600;
+}
+
+.filtros-historico {
+
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.filtros-historico input[type="date"]{
+
+    background:#fff;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:12px 16px;
+
+    min-width:170px;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.12);
+
+    color:var(--texto-principal);
+
+    font-weight:500;
+
+}
+
+.filtros-historico input[type="date"]:focus{
+
+    outline:none;
+
+    box-shadow:
+        0 0 0 3px rgba(182,160,122,.25);
+
+}
+
+
+/* =====================================
+BOTÃO LIVRE
+===================================== */
+
+.btn-livre{
+
+    background:#2e7d32;
+
+    color:white;
+
+}
+
+/* HOVER LIVRE */
+
+.btn-livre:hover{
+
+    background:#1b5e20;
+
+    transform:translateY(-2px);
+
+}
+
+/* =====================================
+BOTÃO EM USO
+===================================== */
+
+.btn-uso{
+
+    background:#1565c0;
+
+    color:white;
+
+}
+
+/* HOVER EM USO */
+
+.btn-uso:hover{
+
+    background:#0d47a1;
+
+    transform:translateY(-2px);
+
+}
+/* =========================================
+BUSCA HISTÓRICO
+========================================= */
+
+.campo-busca{
+
+    position:relative;
+    width: min(280px, 100%);
+
+}
+
+/* INPUT */
+
+.filtro-busca{
+
+    width:100%;
+
+    padding:
+
+        12px
+        16px
+        12px
+        42px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#FFFFFF;
+
+    color:#1F1D19;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    box-shadow:
+
+        0 4px 12px rgba(0,0,0,0.15);
+
+    transition:0.3s;
+
+}
+
+/* FOCUS */
+
+.filtro-busca:focus{
+
+    outline:none;
+
+    transform:translateY(-1px);
+
+    box-shadow:
+
+        0 6px 18px rgba(0,0,0,0.2),
+
+        0 0 0 3px rgba(182,160,122,0.25);
+
+}
+
+/* PLACEHOLDER */
+.filtro-busca::placeholder{
+
+    color:
+        var(--texto-secundario);
+
+}
+
+/* ÍCONE */
+
+.campo-busca i{
+
+    position:absolute;
+
+    left:14px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#8B7D62;
+
+    font-size:14px;
+
+    pointer-events:none;
+
+}
+
+.filtros-historico input,
+.filtros-historico select {
+
+    flex: 1;
+    min-width: 160px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #dbe3ef;
+    background: white;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+}
+
+.historico-grid .viatura-card {
+
+    border-left:
+        6px solid
+        #1d4ed8;
+}
+
+/* =====================================
+   MODAIS
+===================================== */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(15,23,42,.72);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 9999;
+
+    backdrop-filter:
+        blur(6px);
+
+    animation:
+        fadeIn .25s ease;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+
+    width: 100%;
+    max-width: 620px;
+
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 25px 50px
+        rgba(0,0,0,.20);
+
+    animation:
+        modalOpen .25s ease;
+}
+
+.modal-lg {
+    max-width: 900px;
+}
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+    padding-bottom: 40px;
+}
+
+/* =====================================
+   HEADER MODAL
+===================================== */
+
+.modal-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 24px;
+}
+
+.modal-header h2 {
+
+    font-size: 26px;
+    font-weight: 800;
+
+    color: var(--titulo-operacional);
+}
+
+/* =====================================
+BOTÃO FECHAR MODAL
+===================================== */
+
+.modal-header button {
+
+    border: none;
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    background:
+
+        rgba(107,91,62,.14);
+
+    color:
+        #6B5B3E;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    transition: .25s;
+
+    border:
+        1px solid
+        rgba(107,91,62,.20);
+
+}
+
+ /* =====================================
+HOVER BOTÃO FECHAR
+===================================== */
+
+.modal-header button:hover {
+
+    transform:
+        rotate(90deg);
+
+    background:
+        #6B5B3E;
+
+    color:
+        #F5E6CC;
+
+}
+/* =====================================
+   GRID FORMULÁRIO
+===================================== */
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(250px,1fr)
+        );
+
+    gap:15px;
+
+}
+
+/* =====================================
+   GRID GUARNIÇÃO
+===================================== */
+
+.guarnicao-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(
+            2,
+            minmax(280px,1fr)
+        );
+
+    gap:20px;
+
+    margin-top:20px;
+
+}
+
+/* =====================================
+   BLOCO PESQUISA EFETIVO
+===================================== */
+
+.campo-pesquisa-select{
+
+    background:#ffffff;
+
+    border:1px solid #d8d8d8;
+
+    border-radius:16px;
+
+    padding:14px;
+
+    box-shadow:
+
+        0 4px 12px
+        rgba(0,0,0,.08);
+
+}
+
+.input-pesquisa{
+
+    width:100%;
+
+    height:42px;
+
+    margin-bottom:10px;
+
+    padding:0 14px;
+
+    border:1px solid #d7d7d7;
+
+    border-radius:10px;
+
+    background:#fafafa;
+
+    font-size:14px;
+
+    transition:.25s;
+
+}
+
+.input-pesquisa:focus{
+
+    outline:none;
+
+    border-color:#8B7D62;
+
+    background:white;
+
+    box-shadow:
+
+        0 0 0 3px
+
+        rgba(139,125,98,.18);
+
+}
+
+
+.select-efetivo{
+
+    width:100%;
+
+    height:180px;
+
+    padding:10px;
+
+    border-radius:10px;
+
+    background:white;
+
+    border:1px solid #d7d7d7;
+
+    font-size:14px;
+
+}
+
+.campo-pesquisa-select label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:700;
+
+    color:#6B5B3E;
+
+}
+
+/* =====================================
+   CHECKLIST
+===================================== */
+
+.checklist-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(220px,1fr)
+        );
+
+    gap: 14px;
+
+    margin:
+        22px 0;
+}
+
+.checklist-grid label {
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background:
+        #f8fafc;
+
+    border:
+        1px solid
+        #e2e8f0;
+
+    padding: 16px;
+
+    border-radius: 18px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+    color: var(--texto-principal);
+}
+
+.checklist-grid label:hover {
+
+    border-color:
+        #2563eb;
+
+    transform:
+        translateY(-2px);
+}
+
+/* =====================================
+   FICHA DE AVARIA PREMIUM
+===================================== */
+
+.croqui-container{
+
+    margin-top:20px;
+
+}
+
+.croqui-duplo{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+
+    margin-top:20px;
+
+}
+
+.croqui-item{
+
+    position:relative;
+
+    width:100%;
+
+    max-width:500px;
+
+    margin:auto;
+
+}
+
+.croqui-item img{
+
+    width:450px;
+
+    max-width:100%;
+
+    background:white;
+
+    border-radius:16px;
+
+    padding:10px;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.15);
+
+}
+
+.croqui-wrapper{
+
+    position:relative;
+
+    display:block;
+
+    width:100%;
+
+}
+
+.croqui-wrapper canvas{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    cursor:crosshair;
+
+}
+
+/* =====================================
+   GALERIA DE AVARIAS
+===================================== */
+
+.galeria-avarias{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(180px,1fr)
+        );
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+.galeria-avarias img{
+
+    width:100%;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,.15);
+
+    transition:.3s;
+
+}
+
+.galeria-avarias img:hover{
+
+    transform:scale(1.03);
+
+}
+
+.checklist-grid input[type="checkbox"] {
+
+    width: 22px;
+
+    height: 22px;
+
+    cursor: pointer;
+
+    accent-color:
+        #6B5B3E;
+
+}
+
+/* =====================================
+   DETALHES AVARIA
+===================================== */
+
+.detalhes-avaria{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(250px,1fr)
+        );
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+.detalhes-avaria p{
+
+    background:#f8fafc;
+
+    padding:12px;
+
+    border-radius:12px;
+
+}
+
+
+/* HOVER CHECKBOX */
+
+.checklist-grid label:hover {
+
+    border-color:
+        #8B7D62;
+
+    background:
+        rgba(107,91,62,.08);
+
+}
+
+
+/* =====================================
+   ÚLTIMO CHECKLIST
+===================================== */
+
+#ultimoChecklistInfo {
+
+    background:
+        #eff6ff;
+
+    border:
+        1px solid
+        #bfdbfe;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    margin-bottom: 22px;
+}
+
+#ultimoChecklistInfo h3 {
+
+    color: var(--titulo-operacional);
+
+    margin-bottom: 10px;
+
+    font-size: 18px;
+}
+
+
+/* =====================================
+   MENU MOBILE
+===================================== */
+
+.menu-mobile {
+
+    position: fixed;
+
+    top: 18px;
+    left: 18px;
+
+    z-index: 10000;
+
+    width: 54px;
+    height: 54px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    background:
+    #6B5B3E;
+
+    color:
+    #F5E6CC;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    display: none;
+
+    box-shadow:
+    0 10px 25px
+    rgba(107,91,62,.30);
+
+}
+
+
+/* HOVER MENU MOBILE */
+
+.menu-mobile:hover{
+
+    background:
+        #8B7D62;
+
+    transform:
+        scale(1.05);
+
+}
+/* =====================================
+   HIDDEN
+===================================== */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =====================================
+   ANIMAÇÕES
+===================================== */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalOpen {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(.92)
+            translateY(20px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+/* =====================================
+   RESPONSIVO TABLET
+===================================== */
+
+@media (max-width: 1100px) {
+
+    .content {
+
+        margin-left: 0;
+        padding: 90px 20px 30px;
+    }
+
+    .sidebar {
+
+        transform:
+            translateX(-100%);
+    }
+
+    .sidebar.open {
+
+        transform:
+            translateX(0);
+    }
+
+    .menu-mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .topbar {
+
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .page-header {
+
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .section-header {
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+}
+
+
+/* =====================================
+   RESPONSIVO MOBILE
+===================================== */
+
+@media (max-width: 768px) {
+
+    
+
+    .dashboard-grid,
+    .viaturas-grid,
+    .historico-grid,
+    .config-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+
+    .modal-content {
+
+        max-height: 90vh;
+        overflow-y: auto;
+
+        padding: 22px;
+    }
+
+    .topbar h1 {
+
+        font-size: 24px;
+    }
+
+    .page-header h2 {
+
+        font-size: 24px;
+    }
+
+    .status-card {
+
+        padding: 22px;
+    }
+
+    .status-card span {
+
+        font-size: 34px;
+    }
+
+    .btn-primary {
+
+        padding: 15px;
+    }
+
+    .menu-mobile {
+
+        width: 50px;
+        height: 50px;
+    }
+
+    .croqui-duplo{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+    .croqui-item{
+
+        width:100%;
+
+    }
+
+    .croqui-wrapper{
+
+        width:100%;
+
+    }
+
+    .croqui-item img{
+
+    display:block;
+
+    width:100%;
+
+    max-width:none;
+
+    height:auto;
+
+    object-fit:contain;
+
+}
+            
+    .marcador-avaria{
+
+    width:14px;
+
+    height:14px;
+
+}
+
+    
+}
+
+
+/* =====================================
+   RESPONSIVO PEQUENO
+===================================== */
+
+@media (max-width: 480px) {
+
+    .login-card {
+
+        padding: 30px 20px;
+    }
+
+    .modal-content {
+
+        border-radius: 22px;
+    }
+
+    .sidebar {
+
+        width: 86%;
+    }
+
+    .topbar {
+
+        margin-bottom: 22px;
+    }
+}
+
+
+.menu button {
+
+    transition: .3s;
+}
+
+.menu-active {
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            rgba(182,160,122,.16),
+            transparent
+
+        ) !important;
+
+    color: #FFFFFF !important;
+
+    border-left:
+
+        4px solid #B6A07A;
+
+    transform:
+        translateX(4px);
+}
+
+/* =========================
+STATUS VISUAL DOS CARDS
+========================= */
+
+.card-livre {
+
+    border: 3px solid
+        rgba(0,255,0,.25);
+
+    box-shadow:
+        0 0 18px
+        rgba(0,255,0,.12);
+
+}
+
+.card-uso {
+
+    border: 3px solid
+        rgba(0,140,255,.30);
+
+    box-shadow:
+        0 0 18px
+        rgba(0,140,255,.15);
+
+}
+
+.card-manutencao {
+
+    border: 3px solid
+        rgba(255,0,0,.25);
+
+    box-shadow:
+        0 0 18px
+        rgba(255,0,0,.12);
+
+}
+
+
+/* ===================================== */
+/* SCROLL MENU CADASTRO */
+/* ===================================== */
+
+.config-grid {
+
+    max-height: 450px;
+
+    overflow-y: auto;
+
+    padding-right: 8px;
+
+    scroll-behavior: smooth;
+
+}
+
+/* Scroll personalizada */
+
+.config-grid::-webkit-scrollbar {
+
+    width: 8px;
+
+}
+
+.config-grid::-webkit-scrollbar-track {
+
+    background: #111827;
+
+    border-radius: 10px;
+
+}
+
+.config-grid::-webkit-scrollbar-thumb {
+
+    background: #2f4f7f;
+
+    border-radius: 10px;
+
+}
+
+.config-grid::-webkit-scrollbar-thumb:hover {
+
+    background: #4169e1;
+
+}
+
+
+
+/* ===================================== */
+/* BOTÃO REMOVER FILTRADOS */
+/* ===================================== */
+
+.historico-acoes {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 14px;
+
+}
+
+.btn-delete {
+
+    background:
+        linear-gradient(
+            135deg,
+            #b54848,
+            #d95656
+        );
+
+    border: none;
+
+    color: white;
+
+    padding:
+        12px 20px;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    transition: .25s;
+
+    box-shadow:
+        0 0px 0px
+        rgba(
+            220,
+            38,
+            38,
+            0.35
+        );
+
+}
+
+.btn-delete:hover {
+
+    transform:
+        translateY(-2px);
+
+    opacity: .92;
+
+}
+
+select{
+    width:100%;
+    padding:12px 14px;
+
+    background:#f2f1f1;
+
+    border:1px solid #e9e6e6;
+
+    border-radius:10px;
+
+    color:#0a0a0a;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:0.3s;
+}
+
+select:hover{
+    border-color:#151515;
+}
+
+select:focus{
+    border-color:#121312;
+
+    box-shadow:
+        0 0 10px rgba(36, 36, 36, 0.5);
+}
+
+
+
+.avaria-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(220px,1fr)
+        );
+
+    gap:12px;
+    margin:20px 0;
+}
+
+.avaria-grid label{
+    background: #f8fafc;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    color: var(--texto-principal);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.assinaturas-avaria{
+
+    display:flex;
+
+    gap:40px;
+
+    margin-top:50px;
+
+}
+
+.assinatura-box{
+
+    flex:1;
+
+    text-align:center;
+
+}
+
+.linha-assinatura{
+
+    border-bottom:
+        2px solid #000;
+
+    height:50px;
+
+    margin-bottom:10px;
+
+}
+
+/* =====================================
+   FICHA DE AVARIA - ESTRUTURA PREMIUM
+===================================== */
+
+.ficha-avaria-section {
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+}
+
+.ficha-avaria-section h3,
+.ficha-avaria-section h2 {
+    color: var(--titulo-operacional);
+}
+
+.croqui-container{
+
+    margin-top:25px;
+
+}
+
+.croqui-duplo{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+
+}
+
+.croqui-item{
+
+    position:relative;
+
+}
+
+.croqui-item img{
+
+    width:100%;
+
+    max-width:420px;
+
+    height:auto;
+
+    object-fit:contain;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:10px;
+
+    box-shadow:
+        0 6px 16px rgba(0,0,0,.15);
+
+}
+
+.croqui-wrapper{
+
+    position:relative;
+
+    display:inline-block;
+
+}
+
+/* =====================================
+   MARCADORES DE AVARIA
+===================================== */
+
+.marcador-avaria{
+
+    position:absolute;
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:#ff0000;
+
+    border:2px solid white;
+
+    transform:
+        translate(-50%,-50%);
+
+    box-shadow:
+        0 0 8px rgba(255,0,0,.5);
+
+    cursor:pointer;
+
+    z-index:999;
+
+    transition:.2s;
+
+}
+
+.marcador-avaria:hover{
+
+    transform:
+        translate(-50%,-50%)
+        scale(1.25);
+
+}
+
+/* =====================================
+   GALERIA AVARIA
+===================================== */
+
+.galeria-avarias{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(180px,1fr)
+        );
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+.galeria-avarias img{
+
+    width:100%;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.15);
+
+    transition:.25s;
+
+}
+
+.galeria-avarias img:hover{
+
+    transform:scale(1.03);
+
+}
+
+/* =====================================
+   DETALHES FICHA AVARIA
+===================================== */
+
+.detalhes-avaria{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(250px,1fr)
+        );
+
+    gap:12px;
+
+    margin-top:20px;
+
+}
+
+.detalhes-avaria p{
+
+    background:#f8fafc;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    margin:0;
+
+}
+
+/* =====================================
+BOTÃO MODELO AVARIA
+===================================== */
+
+.btn-modelo-avaria{
+
+    border:none;
+
+    padding:12px 18px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #8B7D62,
+
+            #6B5B3E
+
+        );
+
+    color:#F5E6CC;
+
+    transition:.25s;
+
+    box-shadow:
+
+        0 6px 16px
+        rgba(107,91,62,.25);
+
+}
+
+.btn-modelo-avaria:hover{
+
+    transform:
+        translateY(-2px);
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #A08B69,
+
+            #7B694A
+
+        );
+
+    box-shadow:
+
+        0 10px 22px
+        rgba(107,91,62,.35);
+
+}
+
+.btn-modelo-avaria i{
+
+    font-size:15px;
+
+}
+@media (max-width:768px){
+
+    .croqui-duplo{
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:20px;
+
+        width:100%;
+
+    }
+
+    .croqui-item{
+
+        width:100%;
+
+        max-width:100%;
+
+    }
+
+    .croqui-wrapper{
+
+        width:100%;
+
+    }
+
+    .croqui-wrapper img{
+
+        width:100%;
+
+        height:auto;
+
+        object-fit:contain;
+
+    }
+
+    .guarnicao-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+.campo-flat{
+
+    background:#ffffff !important;
+
+    box-shadow:none !important;
+
+    border:1px solid #d6d6d6 !important;
+
+}
+
+.alerta-oleo{
+
+    margin-top:12px;
+
+    background:#fff3cd;
+
+    color:#856404;
+
+    border:1px solid #ffeeba;
+
+    border-radius:12px;
+
+    padding:10px;
+
+    text-align:center;
+
+    font-weight:700;
+
+    font-size:13px;
+
+    animation:pulsarOleo 1.5s infinite;
+
+}
+
+@keyframes pulsarOleo{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.03);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+.card-baixada{
+
+    border:
+        3px solid #dc2626;
+
+    box-shadow:
+        0 0 18px
+        rgba(220,38,38,.25);
+
+}
+
+.status-baixada{
+
+    background:
+        rgba(220,38,38,.12);
+
+    color:
+        #dc2626;
+
+}
+
+.btn-baixa{
+
+    background:#6d4c41;
+
+    color:white;
+
+}
+
+.btn-baixa:hover{
+
+    background:#4e342e;
+
+    transform:translateY(-2px);
+
+}
+
+/* =====================================
+BOTÃO DETALHE DA BAIXA
+===================================== */
+
+.btn-detalhe-baixa{
+
+    width:100%;
+
+    margin-top:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b54848,
+            #d95656
+        );
+
+    color:white;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:12px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:8px;
+
+    box-shadow:
+        0 6px 18px
+        rgba(
+            181,
+            72,
+            72,
+            .30
+        );
+
+}
+
+.btn-detalhe-baixa:hover{
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 24px
+        rgba(
+            181,
+            72,
+            72,
+            .45
+        );
+
+}
+
+.btn-detalhe-baixa i{
+
+    font-size:15px;
+
+}
+
+/* =====================================
+   CARD BAIXADAS
+===================================== */
+
+.status-card.baixadas{
+
+    border-left:8px solid #8b0000;
+
+}
+
+.status-card.baixadas i{
+
+    color:#8b0000;
+
+}
+
+/* ==========================
+   MODAL DASHBOARD
+========================== */
+
+.dashboard-item{
+
+    padding:12px;
+
+    margin-bottom:10px;
+
+    border:1px solid #dcdcdc;
+
+    border-radius:10px;
+
+    background:#fafafa;
+
+}
+
+.dashboard-item strong{
+
+    color:#8B0000;
+
+    font-size:15px;
+
+}
+
+.dashboard-item i{
+
+    margin-right:8px;
+
+}
+
+.texto-centralizado{
+
+    text-align:center;
+
+    padding:20px;
+
+    color:#777;
+
+}
+
+/* =====================================
+   QUADRO DE OBSERVAÇÕES
+===================================== */
+
+.observacoes-dashboard{
+    margin-top: 28px;
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 22px;
+    padding: 24px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.observacoes-dashboard::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 6px;
+    background: linear-gradient(180deg, #8b7d62, #c8b08a);
+}
+
+.observacoes-header h3{
+    color: var(--titulo-operacional);
+    font-size: 19px;
+    margin-bottom: 16px;
+    font-weight: 800;
+}
+
+.lista-observacoes{
+    min-height: 120px;
+    max-height: 280px;
+    overflow-y: auto;
+    margin-bottom: 18px;
+    padding-right: 6px;
+}
+
+.observacao-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+}
+
+.observacao-texto{
+    white-space: pre-wrap;
+    line-height: 1.7;
+    font-size: 15px;
+    color: var(--texto-principal);
+}
+
+.btn-remover-observacao{
+    background: #c62828;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-remover-observacao:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.campo-observacao{
+    width: 100%;
+    min-height: 95px;
+    height: 95px;
+    padding: 14px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    background: #ffffff;
+    color: #334155;
+    font-size: 15px;
+    font-family: inherit;
+    line-height: 1.6;
+    resize: vertical;
+    box-sizing: border-box;
+    outline: none;
+    display: block;
+}
+
+.campo-observacao::placeholder{
+    color: #94a3b8;
+    font-style: italic;
+}
+
+.campo-observacao:focus{
+    border-color: #8b7d62;
+    box-shadow: 0 0 0 3px rgba(139, 125, 98, 0.14);
+}
+
+.acoes-observacao{
+    margin-top: 15px;
+    display: flex;
+    gap: 12px;
+}
+
+.sem-observacoes{
+    color: #64748b;
+    text-align: center;
+    padding: 20px;
+}
+
+
+.btn-salvar-operacao{
+
+    width:100%;
+
+    margin-top:25px;
+
+    height:54px;
+
+    font-size:17px;
+
+    font-weight:700;
+
+}
+
+
+.lista-efetivo{
+
+    display:none;
+
+    position:absolute;
+
+    left:0;
+
+    top:100%;
+
+    width:100%;
+
+    max-height:260px;
+
+    overflow-y:auto;
+
+    background:#fff;
+
+    border:1px solid #d9d9d9;
+
+    border-radius:12px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.18);
+
+    z-index:9999;
+
+}
+
+.item-efetivo{
+
+    padding:12px 15px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.item-efetivo:hover{
+
+    background:#ece5d3;
+
+}
+
+.input-efetivo{
+
+    width:100%;
+
+    height:46px;
+
+}
+
+.dados-operacao{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+    margin-top:25px;
+
+}
+
+.btn-salvar-operacao{
+
+    grid-column:1/-1;
+
+    width:100%;
+
+    margin-top:10px;
+
+}
+
+.guarnicao-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px;
+
+    margin-top:25px;
+
+}
+
+.campo-pesquisa-select{
+
+    position:relative;
+
+    background:#fff;
+
+    padding:16px;
+
+    border-radius:18px;
+
+    border:1px solid #e5e7eb;
+
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+
+}
+
+.input-efetivo{
+
+    width:100%;
+
+}
+
+
+
+/*==================================
+STATUS DO SISTEMA
+==================================*/
+
+.status-toast{
+
+    position:fixed;
+
+    bottom:20px;
+
+    right:20px;
+
+    width:380px;
+
+    max-width:calc(100% - 30px);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:14px 18px;
+
+    border-radius:14px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    line-height:1.4;
+
+    box-shadow:0 8px 30px rgba(0,0,0,.25);
+
+    z-index:99999;
+
+    opacity:1;
+
+    transition:
+        opacity .35s,
+        transform .35s;
+
+}
+
+.status-toast.online{
+
+    background:#198754;
+
+    color:white;
+
+}
+
+.status-toast.offline{
+
+    background:#dc3545;
+
+    color:white;
+
+}
+
+.status-toast.carregando{
+
+    background:#ffc107;
+
+    color:#000;
+
+}
+
+/*==================================
+SMARTPHONES
+==================================*/
+
+@media (max-width:768px){
+
+    .status-toast{
+
+        left:12px;
+
+        right:12px;
+
+        bottom:12px;
+
+        width:auto;
+
+        max-width:none;
+
+        min-width:auto;
+
+        padding:12px 14px;
+
+        font-size:13px;
+
+        border-radius:12px;
+
+    }
+
+    .status-toast i{
+
+        font-size:18px;
+
+        flex-shrink:0;
+
+    }
+
+    .status-toast span{
+
+        flex:1;
+
+    }
+
+}
+
+@keyframes aparecerToast{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.status-toast{
+
+    animation:aparecerToast .35s ease;
+
+}
+
+/* =====================================
+   DASHBOARD — ATIVIDADES E OPERAÇÕES
+===================================== */
+
+.atividade-item,
+.operacao-card,
+.observacao-item {
+
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 10px;
+}
+
+.atividade-item strong,
+.operacao-card strong,
+.observacao-item strong {
+
+    color: var(--titulo-operacional);
+}
+
+.atividade-item p,
+.operacao-card p,
+.observacao-item p {
+
+    margin-top: 6px;
+    color: var(--texto-secundario);
+    line-height: 1.5;
+}
+
+.atividade-item small,
+.observacao-item small {
+
+    display: block;
+    margin-top: 8px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+.observacao-item {
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.observacao-texto {
+
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.btn-remover-observacao {
+
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    border: none;
+    border-radius: 10px;
+    background: #b54848;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-remover-observacao:hover {
+
+    background: #8e0000;
+}
+
+.sem-registros,
+.sem-observacoes {
+
+    padding: 16px;
+    text-align: center;
+    color: var(--texto-secundario);
+}
+
+@media (max-width: 768px) {
+
+    .observacao-item {
+
+        align-items: center;
+    }
+
+    .atividade-item,
+    .operacao-card,
+    .observacao-item {
+
+        padding: 12px;
+    }
+}
+
+/* =====================================
+   BARRA DE ROLAGEM — ÚLTIMAS ATIVIDADES
+===================================== */
+
+#ultimaAtividade {
+
+    max-height: 360px;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    padding-right: 8px;
+
+    scroll-behavior: smooth;
+
+}
+
+
+/* Firefox */
+
+#ultimaAtividade {
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        #8B7D62
+        #ece7df;
+
+}
+
+
+/* Chrome, Edge e Safari */
+
+#ultimaAtividade::-webkit-scrollbar {
+
+    width: 8px;
+
+}
+
+
+#ultimaAtividade::-webkit-scrollbar-track {
+
+    background:
+        #ece7df;
+
+    border-radius:
+        10px;
+
+}
+
+
+#ultimaAtividade::-webkit-scrollbar-thumb {
+
+    background:
+        linear-gradient(
+            180deg,
+            #A08B69,
+            #6B5B3E
+        );
+
+    border-radius:
+        10px;
+
+    border:
+        2px solid
+        #ece7df;
+
+}
+
+
+#ultimaAtividade::-webkit-scrollbar-thumb:hover {
+
+    background:
+        #4E4637;
+
+}
+
+/* =========================================
+   TABELA DO HISTÓRICO RESPONSIVA
+========================================= */
+
+#listaHistorico {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    min-width: 0;
+
+}
+
+
+.historico-table-container {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+
+    -webkit-overflow-scrolling: touch;
+
+    border-radius: 12px;
+
+    position: relative;
+
+}
+
+
+.historico-table {
+
+    width: 100%;
+
+    min-width: 900px;
+
+    border-collapse: collapse;
+
+}
+
+
+.historico-table th,
+.historico-table td {
+
+    white-space: normal;
+
+    vertical-align: middle;
+
+}
+
+
+/* Tipo */
+
+.historico-table th:nth-child(1),
+.historico-table td:nth-child(1) {
+
+    min-width: 115px;
+
+}
+
+
+/* Resumo */
+
+.historico-table th:nth-child(2),
+.historico-table td:nth-child(2) {
+
+    min-width: 250px;
+
+}
+
+
+/* Viatura */
+
+.historico-table th:nth-child(3),
+.historico-table td:nth-child(3) {
+
+    min-width: 140px;
+
+}
+
+
+/* Data/Hora */
+
+.historico-table th:nth-child(4),
+.historico-table td:nth-child(4) {
+
+    min-width: 165px;
+
+    white-space: nowrap;
+
+}
+
+
+/* Ações */
+
+.historico-table th:nth-child(5),
+.historico-table td:nth-child(5) {
+
+    min-width: 190px;
+
+    white-space: nowrap;
+
+}
+
+
+.historico-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    flex-wrap: nowrap;
+
+}
+
+
+.historico-actions button {
+
+    flex: 0 0 auto;
+
+    white-space: nowrap;
+
+}
+
+
+/* Barra horizontal no Chrome, Edge e Safari */
+
+.historico-table-container::-webkit-scrollbar {
+
+    height: 9px;
+
+}
+
+
+.historico-table-container::-webkit-scrollbar-track {
+
+    background: #ece7df;
+
+    border-radius: 10px;
+
+}
+
+
+.historico-table-container::-webkit-scrollbar-thumb {
+
+    background: #6b5b3e;
+
+    border-radius: 10px;
+
+    border: 2px solid #ece7df;
+
+}
+
+
+.historico-table-container::-webkit-scrollbar-thumb:hover {
+
+    background: #4e4637;
+
+}
+
+
+/* Firefox */
+
+.historico-table-container {
+
+    scrollbar-width: thin;
+
+    scrollbar-color: #6b5b3e #ece7df;
+
+}
+
+@media (max-width: 768px) {
+
+    #historico {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        overflow-x: hidden;
+
+    }
+
+
+    #listaHistorico {
+
+        width: 100%;
+
+        max-width: 100%;
+
+    }
+
+
+    .historico-table-container {
+
+        width: 100%;
+
+        max-width: calc(100vw - 32px);
+
+        margin: 0 auto;
+
+        padding-bottom: 8px;
+
+    }
+
+
+    .historico-table {
+
+        width: max-content;
+
+        min-width: 850px;
+
+    }
+
+
+    .historico-table th,
+    .historico-table td {
+
+        padding: 10px 8px;
+
+        font-size: 13px;
+
+    }
+
+
+    .historico-actions {
+
+        min-width: 170px;
+
+    }
+
+
+    .historico-actions .btn-details,
+    .historico-actions .btn-delete {
+
+        padding: 8px 10px;
+
+        font-size: 12px;
+
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .historico-table th:last-child,
+    .historico-table td:last-child {
+
+        position: sticky;
+
+        right: 0;
+
+        z-index: 2;
+
+        background: #ffffff;
+
+        box-shadow: -5px 0 8px rgba(0, 0, 0, 0.08);
+
+    }
+
+
+    .historico-table thead th:last-child {
+
+        z-index: 4;
+
+        background: #6b5b3e;
+
+        color: #ffffff;
+
+    }
+
+}
+
+/* ==================================================
+   MODAL NOVA OPERAÇÃO — RESPONSIVO PARA CELULAR
+================================================== */
+
+/* Ajustes exclusivos do modal Teatro de Operações */
+
+#modalTeatro {
+
+    padding: 18px;
+
+    overflow: hidden;
+
+}
+
+
+#modalTeatro .modal-content {
+
+    width: min(920px, 100%);
+
+    max-width: 920px;
+
+    max-height: calc(100dvh - 36px);
+
+    padding: 24px;
+
+    overflow-x: hidden;
+
+    overflow-y: auto;
+
+    border-radius: 22px;
+
+    overscroll-behavior: contain;
+
+    -webkit-overflow-scrolling: touch;
+
+}
+
+
+/* Cabeçalho permanece visível durante a rolagem */
+
+#modalTeatro .modal-header {
+
+    position: sticky;
+
+    top: -24px;
+
+    z-index: 10;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin: -24px -24px 22px;
+
+    padding: 22px 24px 18px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e7eb;
+
+}
+
+
+#modalTeatro .modal-header h2 {
+
+    min-width: 0;
+
+    margin: 0;
+
+    font-size: 24px;
+
+    line-height: 1.2;
+
+}
+
+
+/* Botão fechar */
+
+#modalTeatro .modal-header button {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 42px;
+
+    height: 42px;
+
+    min-width: 42px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f1f3f5;
+
+    color: #665231;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+}
+
+
+/* Grade principal */
+
+#modalTeatro .form-grid {
+
+    width: 100%;
+
+    min-width: 0;
+
+}
+
+
+/* Impede que campos ultrapassem a largura */
+
+#modalTeatro .form-group,
+#modalTeatro .campo-pesquisa-select {
+
+    width: 100%;
+
+    min-width: 0;
+
+}
+
+
+/* Inputs e selects uniformes */
+
+#modalTeatro input,
+#modalTeatro select {
+
+    display: block;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    min-width: 0;
+
+    font-size: 16px;
+
+}
+
+
+/* Listas da guarnição */
+
+#modalTeatro .select-efetivo {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    height: 170px;
+
+    min-height: 170px;
+
+}
+
+
+/* Serviço, área e contato */
+
+#modalTeatro .dados-operacao {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+}
+
+
+/* Botão salvar */
+
+#modalTeatro .btn-salvar-operacao {
+
+    width: 100%;
+
+    min-height: 52px;
+
+    margin-top: 20px;
+
+}
+
+@media (max-width: 768px) {
+
+    #modalTeatro {
+
+        align-items: flex-start;
+
+        padding:
+
+            max(10px, env(safe-area-inset-top))
+
+            10px
+
+            max(10px, env(safe-area-inset-bottom));
+
+    }
+
+
+    #modalTeatro .modal-content {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        max-height:
+            calc(
+                100dvh -
+                max(20px, env(safe-area-inset-top)) -
+                max(20px, env(safe-area-inset-bottom))
+            );
+
+        padding: 16px;
+
+        border-radius: 18px;
+
+    }
+
+
+    #modalTeatro .modal-header {
+
+        top: -16px;
+
+        margin: -16px -16px 18px;
+
+        padding: 16px;
+
+    }
+
+
+    #modalTeatro .modal-header h2 {
+
+        font-size: 20px;
+
+    }
+
+
+    #modalTeatro .modal-header button {
+
+        width: 40px;
+
+        height: 40px;
+
+        min-width: 40px;
+
+    }
+
+
+    /* Todas as grades passam a ter uma coluna */
+
+    #modalTeatro .form-grid,
+    #modalTeatro .guarnicao-grid,
+    #modalTeatro .dados-operacao {
+
+        display: grid;
+
+        grid-template-columns: minmax(0, 1fr);
+
+        gap: 14px;
+
+    }
+
+
+    #modalTeatro .campo-pesquisa-select {
+
+        padding: 12px;
+
+        border-radius: 14px;
+
+    }
+
+
+    #modalTeatro .campo-pesquisa-select label {
+
+        margin-bottom: 7px;
+
+        font-size: 14px;
+
+    }
+
+
+    #modalTeatro input,
+    #modalTeatro select {
+
+        width: 100%;
+
+        min-height: 46px;
+
+        padding: 11px 12px;
+
+        border-radius: 10px;
+
+        font-size: 16px;
+
+    }
+
+
+    /* Select com lista aberta de integrantes */
+
+    #modalTeatro select.select-efetivo {
+
+        height: 145px;
+
+        min-height: 145px;
+
+        padding: 6px;
+
+    }
+
+
+    #modalTeatro select.select-efetivo option {
+
+        padding: 9px 7px;
+
+        white-space: normal;
+
+    }
+
+
+    #modalTeatro .dados-operacao {
+
+        margin-top: 14px;
+
+    }
+
+
+    #modalTeatro .btn-salvar-operacao {
+
+        position: sticky;
+
+        bottom: -16px;
+
+        z-index: 8;
+
+        width: calc(100% + 32px);
+
+        min-height: 54px;
+
+        margin:
+
+            18px
+
+            -16px
+
+            -16px;
+
+        border-radius: 0 0 18px 18px;
+
+        box-shadow:
+            0 -5px 16px
+            rgba(0, 0, 0, 0.12);
+
+    }
+
+}
+
+@media (max-width: 420px) {
+
+    #modalTeatro {
+
+        padding: 6px;
+
+    }
+
+
+    #modalTeatro .modal-content {
+
+        max-height: calc(100dvh - 12px);
+
+        padding: 14px;
+
+        border-radius: 15px;
+
+    }
+
+
+    #modalTeatro .modal-header {
+
+        top: -14px;
+
+        margin: -14px -14px 15px;
+
+        padding: 14px;
+
+    }
+
+
+    #modalTeatro .modal-header h2 {
+
+        font-size: 18px;
+
+    }
+
+
+    #modalTeatro .campo-pesquisa-select {
+
+        padding: 10px;
+
+    }
+
+
+    #modalTeatro select.select-efetivo {
+
+        height: 130px;
+
+        min-height: 130px;
+
+    }
+
+
+    #modalTeatro .btn-salvar-operacao {
+
+        bottom: -14px;
+
+        width: calc(100% + 28px);
+
+        margin:
+
+            16px
+
+            -14px
+
+            -14px;
+
+        border-radius: 0 0 15px 15px;
+
+    }
+
+}

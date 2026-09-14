@@ -1,135 +1,204 @@
-# 🚗 Sistema Web de Gestão de Viaturas
+<p align="center">
+  <img src="./assets/demo-logo.svg" alt="Frota Demo" width="110" />
+</p>
 
-Aplicação web demonstrativa para gerenciamento de veículos, operações,
-checklists, manutenção e histórico.
+<h1 align="center">🚗 Sistema Web de Gestão de Viaturas — Demo</h1>
 
-> ⚠️ Este repositório contém uma versão demonstrativa do projeto.
-> Todos os nomes, veículos, identificadores e demais dados utilizados
-> publicamente são fictícios.
+<p align="center">
+  Aplicação web demonstrativa para gestão de veículos, operações, checklists, manutenção e histórico.
+</p>
+
+> **Versão pública de portfólio.** Todos os nomes, veículos, identificadores, locais e registros são fictícios. Esta demonstração não se conecta a Firebase, contas reais ou banco de produção.
 
 ## 🎯 Sobre o projeto
 
-O projeto surgiu a partir da identificação de uma necessidade real de
-centralização e organização de informações relacionadas à gestão de veículos.
+O projeto nasceu da identificação de uma necessidade real de centralizar informações relacionadas à disponibilidade, utilização e acompanhamento de veículos.
 
-A proposta foi transformar esse problema em uma solução digital capaz de
-reunir diferentes processos em uma única aplicação.
-
-O sistema contempla informações relacionadas a veículos, disponibilidade,
-utilização, checklists, manutenção, cadastros e histórico.
+A versão disponibilizada neste repositório foi adaptada exclusivamente para demonstração e estudo. Ela mantém os principais fluxos de negócio do projeto, mas utiliza identidade visual genérica, dados fictícios, autenticação demonstrativa e armazenamento local no navegador.
 
 ## 💡 Problema identificado
 
-A gestão das informações envolve diferentes dados e processos que precisam
-permanecer relacionados.
-
-Entre os principais desafios identificados estavam:
+A gestão das informações envolve diferentes dados e processos que precisam permanecer relacionados. Entre os principais desafios estavam:
 
 - visualizar rapidamente a disponibilidade dos veículos;
 - registrar utilização e alterações de status;
-- organizar informações relacionadas às operações;
+- organizar operações e equipes vinculadas;
 - acompanhar quilometragem e manutenção;
-- registrar checklists;
+- registrar checklists e avarias;
 - manter histórico das movimentações;
-- centralizar cadastros necessários ao funcionamento do sistema.
+- centralizar cadastros utilizados pelos demais módulos.
 
 ## 💻 Solução proposta
 
-Foi desenvolvida uma aplicação web com módulos integrados para centralizar
-essas informações e facilitar sua consulta e atualização.
+A aplicação reúne os principais fluxos em uma única interface, com dados de demonstração que podem ser alterados livremente e restaurados a qualquer momento.
 
-### Principais funcionalidades
+### Funcionalidades
 
-- Dashboard
-- Gestão de veículos
-- Controle de disponibilidade
-- Registro de utilização
-- Gestão de operações
-- Checklists
-- Controle de manutenção
-- Histórico
-- Cadastros
-- Autenticação de usuários
+- Dashboard com indicadores da frota;
+- gestão de veículos;
+- estados de disponibilidade;
+- cadastro e edição de integrantes fictícios;
+- operações em andamento;
+- checklists;
+- manutenção;
+- fichas de avaria;
+- histórico;
+- geração de PDFs demonstrativos;
+- sessão de visitante sem credenciais externas;
+- restauração dos dados originais da demonstração.
 
 ## 🛠️ Tecnologias utilizadas
 
 - HTML5
 - CSS3
-- JavaScript
-- Firebase
-- Cloud Firestore
-- Firebase Authentication
-- Visual Studio Code
+- JavaScript (ES Modules)
+- Node.js 20+ para servidor local e testes
+- `localStorage` para persistência da demonstração
+- Node Test Runner para testes automatizados
+- Bibliotecas externas carregadas por CDN para recursos de interface e PDF
+
+> O projeto original utilizou Firebase. Nesta versão pública, `firebase.js` funciona apenas como camada de compatibilidade para os módulos existentes e exporta serviços locais da demonstração.
+
+## 🧱 Arquitetura da versão demo
+
+```text
+gestao-viaturas-demo/
+├── assets/                 # Identidade visual e imagens demonstrativas
+├── demo/
+│   ├── auth.mjs            # Sessão demonstrativa
+│   ├── seed.mjs            # Dados fictícios iniciais
+│   ├── serve.mjs           # Servidor HTTP local
+│   ├── store.mjs           # Persistência local e API compatível
+│   └── ui.mjs              # Recursos específicos da demonstração
+├── modules/                # Módulos funcionais da aplicação
+├── tests/                  # Testes automatizados
+├── firebase.js             # Compatibilidade: sem conexão externa
+├── index.html
+├── script.js
+├── style.css
+└── package.json
+```
+
+## ▶️ Executar localmente
+
+### Requisito
+
+- Node.js 20 ou superior
+
+Não é necessário instalar dependências.
+
+```bash
+npm start
+```
+
+Depois acesse:
+
+```text
+http://127.0.0.1:4173
+```
+
+Clique em **Explorar demonstração**. Não há senha.
+
+> Abra o projeto por um servidor HTTP. Abertura direta do `index.html` pelo explorador de arquivos pode impedir o carregamento correto dos módulos JavaScript.
+
+## 🧪 Testes automatizados
+
+Execute:
+
+```bash
+npm test
+```
+
+A suíte cobre pontos como:
+
+- normalização e contagem dos status da frota;
+- consistência dos dados fictícios;
+- cadastro, edição, consulta e exclusão;
+- persistência local;
+- listeners usados para atualizar a interface;
+- restauração dos dados da demonstração;
+- sessão de visitante;
+- isolamento de Firebase e configurações de produção.
+
+## 💾 Persistência da demonstração
+
+As alterações são armazenadas no `localStorage` do navegador e ficam restritas à origem utilizada para abrir o projeto.
+
+O botão **Restaurar dados** apaga as alterações locais e recria os exemplos fictícios.
+
+Esta versão não oferece sincronização entre dispositivos, autenticação real nem garantias de um ambiente de produção.
 
 ## 🧠 Desenvolvimento assistido por IA
 
-A implementação do projeto contou com forte apoio de ferramentas de
-Inteligência Artificial durante o desenvolvimento no Visual Studio Code.
+A implementação e evolução do projeto contaram com forte apoio de ferramentas de Inteligência Artificial no Visual Studio Code.
 
-Minha participação envolveu principalmente:
+Minha participação envolveu:
 
 - identificação do problema;
 - levantamento de requisitos;
-- definição das funcionalidades;
-- elaboração e refinamento das regras de negócio;
+- definição de funcionalidades e regras de negócio;
 - estruturação dos fluxos;
-- testes;
+- testes e validação;
 - identificação e investigação de erros;
-- validação das funcionalidades;
-- evolução da solução.
+- refinamento da interface;
+- evolução iterativa da solução.
 
-Como estudante de Análise e Desenvolvimento de Sistemas, utilizo o projeto
-também como ambiente de aprendizado para aprofundar meus conhecimentos em
-programação, JavaScript, bancos de dados e desenvolvimento de software,
-aumentando progressivamente minha autonomia na compreensão, escrita e
-manutenção do código.
+Como estudante de Análise e Desenvolvimento de Sistemas, utilizo o projeto também como ambiente de aprendizado para aprofundar programação, JavaScript, persistência de dados, arquitetura de aplicações e manutenção de código.
 
 ## 📚 Principais aprendizados
 
-O desenvolvimento deste projeto proporcionou contato prático com:
+O projeto proporcionou contato prático com:
 
-- estruturação de uma aplicação web;
-- manipulação de dados com JavaScript;
+- organização de uma aplicação web modular;
+- funções, objetos, eventos e manipulação do DOM;
 - operações CRUD;
-- autenticação de usuários;
 - persistência de dados;
-- banco de dados NoSQL;
-- regras de negócio;
-- atualização de estados da aplicação;
-- testes e depuração;
-- organização de requisitos;
-- desenvolvimento iterativo.
+- atualização de estado da interface;
+- regras de negócio envolvendo disponibilidade de veículos;
+- testes automatizados;
+- depuração e tratamento de erros;
+- documentação e preparação de uma versão pública sanitizada.
 
 ## 🔐 Segurança e privacidade
 
-O sistema original foi desenvolvido a partir de uma necessidade existente
-em um contexto profissional.
+A versão pública foi separada do ambiente original e preparada para portfólio.
 
-Por esse motivo, nenhuma informação institucional, credencial, dado pessoal
-ou informação operacional sensível é disponibilizada neste repositório.
+Ela não contém:
 
-A versão pública utiliza exclusivamente dados e elementos fictícios e foi
-adaptada para fins educacionais e de portfólio.
+- credenciais de produção;
+- service accounts;
+- chaves privadas;
+- contas reais;
+- conexão com banco de produção;
+- dados pessoais reais;
+- identificadores institucionais reais.
+
+O `.gitignore` também impede o versionamento acidental de arquivos como `.env`, chaves, service accounts e configurações locais do Firebase.
+
+## 🌐 GitHub Pages
+
+O site é estático e pode ser publicado diretamente pelo GitHub Pages usando a raiz da branch que contém `index.html`.
+
+O arquivo `.nojekyll` já está incluído e os caminhos utilizados são relativos, permitindo publicação no endereço do próprio repositório.
 
 ## 🚧 Status
 
-🟡 Versão demonstrativa em desenvolvimento.
+**Versão demonstrativa em evolução.**
 
 ## 🔮 Próximas melhorias
 
-- disponibilizar versão demonstrativa completa;
-- ampliar testes;
-- melhorar responsividade;
-- revisar a organização do código;
-- aprimorar documentação;
-- ampliar tratamento de erros;
-- continuar refatorando funcionalidades conforme avanço dos estudos.
+- ampliar cobertura de testes;
+- melhorar responsividade em telas menores;
+- reduzir código legado e duplicações;
+- refatorar módulos gradualmente;
+- aprimorar tratamento de erros;
+- adicionar capturas de tela da versão pública;
+- documentar fluxos e regras de negócio com mais detalhes.
 
 ---
 
 ### 👨‍💻 Autor
 
-**Emanuel Henrique**
-
+**Emanuel Henrique**  
 Estudante de Análise e Desenvolvimento de Sistemas — FPB  
 Buscando oportunidade de estágio em Desenvolvimento de Software.

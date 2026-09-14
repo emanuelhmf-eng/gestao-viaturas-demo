@@ -1,0 +1,18 @@
+﻿# Dependências e arquivos locais
+node_modules/
+*.log
+coverage/
+.DS_Store
+Thumbs.db
+
+# Credenciais e configurações de implantação não pertencem à demo
+.env
+.env.*
+!.env.example
+.firebase/
+.firebaserc
+firebase-config/
+*-adminsdk-*.json
+*service-account*.json
+*.pem
+*.key
